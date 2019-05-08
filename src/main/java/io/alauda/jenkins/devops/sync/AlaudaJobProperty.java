@@ -4,6 +4,8 @@ import io.alauda.jenkins.devops.sync.util.AlaudaUtils;
 import io.alauda.kubernetes.api.model.PipelineConfig;
 import org.apache.commons.lang.StringUtils;
 
+import java.util.Map;
+
 public interface AlaudaJobProperty {
     String getUid();
 
@@ -20,6 +22,8 @@ public interface AlaudaJobProperty {
     String getResourceVersion();
 
     void setResourceVersion(String resourceVersion);
+
+    Map<String, String> getData();
 
     default boolean isValid() {
         return StringUtils.isNotBlank(getNamespace()) &&
